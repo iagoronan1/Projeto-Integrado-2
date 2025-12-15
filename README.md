@@ -44,4 +44,15 @@ Mesmo sendo um projeto acadêmico, o sistema pode servir como base para escolas 
 ________________________________________
 Organização da Equipe
 O desenvolvimento foi feito de forma colaborativa, com divisão de tarefas como levantamento de informações, modelagem do sistema, implementação do código, testes e documentação.
+________________________________________
+Possíveis usos da nossa solução
+A solução desenvolvida neste projeto pode ser aplicada em contextos reais como escolas de pequeno e médio porte, reforços escolares, instituições de ensino técnico ou até mesmo projetos educacionais comunitários que
+necessitam de uma organização básica e eficiente das informações acadêmicas. Mesmo sendo um sistema simples, ele atende a necessidades comuns do dia a dia escolar, como o controle de notas, frequência, tarefas e
+comunicação entre os envolvidos no processo educacional.
+Para uma escola, o sistema pode ajudar a centralizar informações que normalmente ficam dispersas em planilhas, cadernos ou aplicativos diferentes. Com isso, professores conseguem registrar dados acadêmicos de forma mais
+organizada, alunos podem acompanhar seu próprio desempenho, e responsáveis passam a ter uma visão mais clara da evolução escolar, o que contribui para uma comunicação mais transparente entre escola e família.
+Além disso, o projeto pode servir como base para futuras expansões, como integração com banco de dados, interface web ou aplicativo mobile. Dessa forma, ele não apenas resolve um problema hipotético, mas também demonstra
+como uma solução bem estruturada pode evoluir para atender demandas reais do mercado educacional, mostrando a importância da tecnologia na organização e melhoria dos processos escolares.
+
+
 
