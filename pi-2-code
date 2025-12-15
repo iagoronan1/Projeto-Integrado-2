@@ -1,0 +1,169 @@
+from typing import List
+
+
+# ==========================
+#   ADMINISTRAÇÃO ESCOLAR
+# ==========================
+class AdministracaoEscolar:
+    def __init__(self):
+        self.alunos: List["Aluno"] = []
+        self.professores: List["Professor"] = []
+        self.turmas: List["Turma"] = []
+
+    def cadastrar_aluno(self, aluno: "Aluno"):
+        self.alunos.append(aluno)
+
+    def cadastrar_professor(self, professor: "Professor"):
+        self.professores.append(professor)
+
+    def cadastrar_turma(self, turma: "Turma"):
+        self.turmas.append(turma)
+
+
+# ==========================
+#           ALUNO
+# ==========================
+class Aluno:
+    def __init__(self, matricula: str, nome: str, senha: str, email: str):
+        self.matricula = matricula
+        self.nome = nome
+        self.senha = senha
+        self.email = email
+        self.turmas: List["Turma"] = []
+        self.disciplinas: List["Disciplina"] = []
+        self.comunicados: List["Comunicacao"] = []
+        self.tarefas: List["Tarefa"] = []
+
+    def consultar_notas(self):
+        return {disc.cod_disciplina: disc.notas.get(self.matricula)
+                for disc in self.disciplinas}
+
+    def consultar_frequencia(self):
+        return {disc.cod_disciplina: disc.frequencias.get(self.matricula)
+                for disc in self.disciplinas}
+
+    def consultar_tarefas(self):
+        return self.tarefas
+
+    def receber_comunicados(self):
+        return self.comunicados
+
+    def enviar_mensagem(self, destinatario: str, mensagem: str):
+        return f"Mensagem enviada para {destinatario}: {mensagem}"
+
+    def adicionar_turma(self, turma: "Turma"):
+        self.turmas.append(turma)
+
+    def adicionar_disciplina(self, disciplina: "Disciplina"):
+        self.disciplinas.append(disciplina)
+
+
+# ==========================
+#     PAI / RESPONSÁVEL
+# ==========================
+class Responsavel:
+    def __init__(self, id_usuario: str, nome: str, senha: str, email: str):
+        self.id_usuario = id_usuario
+        self.nome = nome
+        self.senha = senha
+        self.email = email
+        self.alunos: List[Aluno] = []
+
+    def consultar_notas(self, aluno: Aluno):
+        return aluno.consultar_notas()
+
+    def consultar_frequencia(self, aluno: Aluno):
+        return aluno.consultar_frequencia()
+
+    def consultar_tarefas(self, aluno: Aluno):
+        return aluno.consultar_tarefas()
+
+    def receber_comunicados(self):
+        comunicados = []
+        for aluno in self.alunos:
+            comunicados.extend(aluno.comunicados)
+        return comunicados
+
+    def adicionar_aluno(self, aluno: Aluno):
+        self.alunos.append(aluno)
+
+
+# ==========================
+#        PROFESSOR
+# ==========================
+class Professor:
+    def __init__(self, id_usuario: str, nome: str, senha: str, email: str):
+        self.id_usuario = id_usuario
+        self.nome = nome
+        self.senha = senha
+        self.email = email
+        self.disciplinas: List["Disciplina"] = []
+        self.comunicados_publicados: List["Comunicacao"] = []
+
+    def lancar_notas(self, disciplina: "Disciplina", aluno: Aluno, nota: float):
+        disciplina.registrar_nota(aluno, nota)
+
+    def registrar_frequencia(self, disciplina: "Disciplina", aluno: Aluno, freq: float):
+        disciplina.registrar_frequencia(aluno, freq)
+
+    def cadastrar_tarefa(self, disciplina: "Disciplina", descricao: str):
+        tarefa = Tarefa(descricao, disciplina)
+        disciplina.tarefas.append(tarefa)
+        return tarefa
+
+    def publicar_comunicado(self, mensagem: str):
+        comunicado = Comunicacao("Comunicado", mensagem)
+        self.comunicados_publicados.append(comunicado)
+        return comunicado
+
+
+# ==========================
+#            TURMA
+# ==========================
+class Turma:
+    def __init__(self, cod_turma: str):
+        self.cod_turma = cod_turma
+        self.alunos: List[Aluno] = []
+        self.disciplinas: List["Disciplina"] = []
+
+    def adicionar_aluno(self, aluno: Aluno):
+        self.alunos.append(aluno)
+
+    def adicionar_disciplina(self, disciplina: "Disciplina"):
+        self.disciplinas.append(disciplina)
+
+
+# ==========================
+#         DISCIPLINA
+# ==========================
+class Disciplina:
+    def __init__(self, cod_disciplina: str, grade_curricular: str):
+        self.cod_disciplina = cod_disciplina
+        self.grade_curricular = grade_curricular
+        self.notas: dict = {}
+        self.frequencias: dict = {}
+        self.tarefas: List["Tarefa"] = []
+        self.comunicados: List["Comunicacao"] = []
+
+    def registrar_nota(self, aluno: Aluno, nota: float):
+        self.notas[aluno.matricula] = nota
+
+    def registrar_frequencia(self, aluno: Aluno, freq: float):
+        self.frequencias[aluno.matricula] = freq
+
+
+# ==========================
+#            TAREFA
+# ==========================
+class Tarefa:
+    def __init__(self, descricao: str, disciplina: Disciplina):
+        self.descricao = descricao
+        self.disciplina = disciplina
+
+# ==========================
+#        COMUNICAÇÃO
+# ==========================
+class Comunicacao:
+    def __init__(self, tipo: str, conteudo: str):
+        self.tipo = tipo
+        self.conteudo = conteudo
