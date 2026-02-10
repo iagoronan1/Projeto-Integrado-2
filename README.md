@@ -56,7 +56,7 @@ como uma solução bem estruturada pode evoluir para atender demandas reais do m
 ________________________________________
 ### Por que o Projeto Físico de Banco de Dados é Importante para Quem Está Aprendendo a Programar
 
-O projeto físico de banco de dados é crucial para iniciantes em programação porque transforma ideias teóricas em estruturas reais e funcionais, 
+O projeto físico de banco de dados é crucial para iniciantes em programação porque transforma ideias teóricas em estruturas reais e funcionais,
 usando SQL para criar tabelas com tipos de dados adequados, chaves primárias (PK) para identificadores únicos e estrangeiras (FK) para conectar 
 entidades, garantindo que dados sejam armazenados de forma organizada e persistente. Sem ele, códigos ficam limitados à memória temporária, 
 perdendo informações ao fechar o programa; com ele, você aprende a integrar bancos evitando erros comuns como duplicatas ou perdas de dados, 
