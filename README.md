@@ -64,5 +64,12 @@ e desenvolvendo habilidades em performance, segurança e escalabilidade para app
 preparando para carreiras em desenvolvimento web/mobile ou data science, onde bancos são fundamentais. Em resumo, o projeto físico ensina a pensar além do código, 
 capacitando programadores a criar sistemas completos e duradouros.
 
+### Como prototipar um Wireframe
+A prototipação de um wireframe é uma etapa inicial no desenvolvimento de interfaces digitais. Ela funciona como um esboço da estrutura do sistema, mostrando onde elementos como menus, botões e áreas de conteúdo estarão posicionados. O objetivo é organizar as informações e planejar a navegação antes de criar o design final.
+Para criar um wireframe, é importante primeiro entender o objetivo do sistema e quem serão os usuários. Depois disso, definem-se as principais funcionalidades, organiza-se a estrutura das páginas e desenham-se as telas utilizando elementos simples. Essa etapa ajuda a visualizar o funcionamento do sistema e fazer ajustes antes do desenvolvimento.
+O design centrado no usuário é fundamental nesse processo, pois busca entender as necessidades das pessoas que irão utilizar o sistema. Quando a interface é pensada com foco no usuário, ela se torna mais fácil de usar, mais acessível e mais eficiente no dia a dia.
+Assim, considerar os princípios de interface humano-computador ajuda a desenvolver sistemas que realmente atendam às necessidades das pessoas e tenham um impacto positivo na sociedade.
+
+
 
 
